@@ -1,0 +1,26 @@
+spring:
+    profiles:
+        active: dev
+    datasource:
+            driver-class-name: org.h2.Driver
+            url: jdbc:h2:mem:testdb
+            username: sa
+            password:
+            platform: h2
+    jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          show_sql: true
+          use_sql_comments: true
+          format_sql: true
+
+    h2:
+        console:
+          enabled: true
+          path: /konsool
+          settings:
+            trace: false
+            web-allow-others: false

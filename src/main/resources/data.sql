@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS employee;
+
+CREATE TABLE employee (
+  id BIGINT(10) NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(64) NULL DEFAULT NULL,
+  last_name VARCHAR(64) NULL DEFAULT NULL,
+  job_title VARCHAR(64) NULL DEFAULT NULL,
+  manager_id BIGINT NULL DEFAULT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_employee_manager_id FOREIGN KEY (manager_id) REFERENCES employee (id)
+);
