@@ -44,14 +44,14 @@ public class EmployeeCRUDServiceSpec {
     // currently entity does not supporting updating Employee's manager_id by assigning an Employee to a manager Entity
     @Test
     public void validateEmployeeSubordinateUpdate() throws Exception {
-        Employee employee = createEmployee("Miko", "Nukka");
+        Employee subordinate = createEmployee("Miko", "Nukka");
         Employee manager = createEmployee("David", "Jop");
-        Set<Employee> employeeSet = Stream.of(employee).collect(Collectors.toSet());
-        manager.setSubordinates(employeeSet);
+        Set<Employee> subordinates = Stream.of(subordinate).collect(Collectors.toSet());
+        manager.setSubordinates(subordinates);
         employeeCRUDService.updateEmployee(manager);
 
-        Employee employeeVerify = entityManager.find(Employee.class, employee.getId());
-        assertThat(employeeVerify.getManager().getId()).isEqualTo(manager.getId());
+        Employee subordinateVerify = entityManager.find(Employee.class, subordinate.getId());
+        assertThat(subordinateVerify.getManager().getId()).isEqualTo(manager.getId());
     }
 
     @Test

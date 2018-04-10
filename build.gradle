@@ -29,7 +29,6 @@ dependencies {
 	compile ('org.springframework.boot:spring-boot-starter-web'){
 		exclude module: 'org.springframework.boot:spring-boot-starter-logging'
 	}
-	compile ('org.springframework.boot:spring-boot-starter-log4j')
 	compile('com.h2database:h2')
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.0.0.RELEASE'
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.8.0'

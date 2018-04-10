@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -21,7 +24,7 @@ public class EmployeeDepartmentService {
     }
 
     // Uncomment if you want test data while your application is running
-    /*
+
     @PostConstruct
     @Transactional
     public void init() throws Exception {
@@ -44,7 +47,7 @@ public class EmployeeDepartmentService {
         } catch (Exception e) {
             LOG.info("PostConstruct failure: " + e.getMessage());
         }
-    }*/
+    }
 
     @Transactional
     public Set<Employee> getSubordinatesOfEmployee(Long id) throws Exception {
