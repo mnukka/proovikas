@@ -11,6 +11,3 @@
 # Swagger for API testing
 * http://localhost:8080/swagger-ui.html
 * Dont forget to use application/json
-
-# Bugs
-* Employees wont persist their managers if you assign list of employees to subordinates

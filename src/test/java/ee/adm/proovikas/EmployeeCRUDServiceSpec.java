@@ -40,18 +40,18 @@ public class EmployeeCRUDServiceSpec {
         assertThat(employee.getId()).isNotNull();
     }
 
-    // This test fails
-    // currently entity does not supporting updating Employee's manager_id by assigning an Employee to a manager Entity
     @Test
     public void validateEmployeeSubordinateUpdate() throws Exception {
         Employee subordinate = createEmployee("Miko", "Nukka");
         Employee manager = createEmployee("David", "Jop");
+        subordinate.setManager(manager); //uncomment this and test fails
         Set<Employee> subordinates = Stream.of(subordinate).collect(Collectors.toSet());
         manager.setSubordinates(subordinates);
         employeeCRUDService.updateEmployee(manager);
 
         Employee subordinateVerify = entityManager.find(Employee.class, subordinate.getId());
         assertThat(subordinateVerify.getManager().getId()).isEqualTo(manager.getId());
+
     }
 
     @Test
