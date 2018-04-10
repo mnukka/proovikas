@@ -25,8 +25,6 @@ public class EmployeeDepartmentService {
         this.employeeCRUDService = employeeCRUDService;
     }
 
-    // Uncomment if you want test data while your application is running
-
     @PostConstruct
     @Transactional
     public void init() throws Exception {
@@ -38,7 +36,6 @@ public class EmployeeDepartmentService {
         employeeCRUDService.createEmployee(employee2);
         employeeCRUDService.createEmployee(employee3);
         employeeCRUDService.createEmployee(employee4);
-
 
         Set<Employee> subordinates = new HashSet<>(Arrays.asList(employee2, employee3, employee4));
 
