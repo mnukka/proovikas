@@ -25,7 +25,7 @@ public class Employee implements Serializable {
     private Employee manager;
 
     @JsonManagedReference
-    @OneToMany(mappedBy="manager", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="manager", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
     private Set<Employee> subordinates;
 
     public Employee(String firstName, String lastName, String jobTitle) {

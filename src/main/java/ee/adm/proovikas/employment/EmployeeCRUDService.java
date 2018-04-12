@@ -48,7 +48,7 @@ public class EmployeeCRUDService {
         if (!employeeResult.isPresent()) {
             throw new Exception("No ID found");
         }
-
+        employeeResult.get().getSubordinates().forEach(p -> p.setManager(null));
         entityManager.remove(employeeResult.get());
     }
 
